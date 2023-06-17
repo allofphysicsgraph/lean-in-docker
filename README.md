@@ -26,8 +26,21 @@ Miscellaneous:
   --githash          display the git commit hash number used to build this binary
 ...
 ```
+To run a script, use
+```bash
+$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --run hello.lean
+Hello, world!
+```
+where
+```bash
+$ cat hello.lean 
+import system.io
 
+open io
 
+def main : io unit :=
+    put_str "Hello, world!\n"
+```
 
 Most Lean tutorials rely on a web UI or are written for VSCode. See <https://leanprover.github.io/reference/using_lean.html><BR> 
 Because I plan to use Lean as part of a workflow, loading from files and getting command line output is relevant.
@@ -60,4 +73,10 @@ curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf 
 * <https://ahelwer.ca/post/2020-04-05-lean-assignment/>
 * <https://leanprover.github.io/theorem_proving_in_lean/introduction.html>
 * <https://leanprover.github.io/reference/lean_reference.pdf> 
+* <https://leanprover.github.io/reference/tactics.html>
+* <https://leanprover.github.io/theorem_proving_in_lean/interacting_with_lean.html> -- importing files; sections
+* <https://leanprover.github.io/logic_and_proof/the_real_numbers.html>
+* <https://www.imo.universite-paris-saclay.fr/~patrick.massot/mil/02_Basics.html>
 * <https://agentultra.github.io/lean-for-hackers/>
+
+
