@@ -35,11 +35,22 @@ where
 ```bash
 $ cat hello.lean 
 import system.io
-
 open io
-
 def main : io unit :=
     put_str "Hello, world!\n"
+```
+The `--run` is the same as having `#eval main` at the end of a file.
+
+You can see how long each phase took using
+```bash
+$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --profile --run hello.lean 
+parsing took 0.0624ms
+elaboration of main took 0.587ms
+type checking of main took 0.0148ms
+compilation of main took 1.64ms
+decl post-processing of main took 0.966ms
+Hello, world!
+main execution took 0ms
 ```
 
 Most Lean tutorials rely on a web UI or are written for VSCode. See <https://leanprover.github.io/reference/using_lean.html><BR> 
