@@ -1,5 +1,4 @@
-# Lean in Docker
-
+# Lean (and only Lean) in Docker
 
 Most Lean tutorials rely on a web UI or are written for VSCode. See <https://leanprover.github.io/reference/using_lean.html>,
 <https://www.youtube.com/watch?v=p4IrbnPomXg><BR>
@@ -12,7 +11,8 @@ The Dockerfile does not contain Emacs or VSCode
 # Similar repos supporting containerization of Lean
 
 * <https://github.com/fcbr/lean-docker> - old, inactive
-* <https://github.com/danielbush/lean-remote-containers> - for VScode
+* <https://github.com/danielbush/lean-remote-containers> - for VScode with Lean v3
+* <https://github.com/shinsa82/lean-devcontainer> - for VScode with Lean v4
 * <https://hub.docker.com/r/lean/lean> - old, inactive
 * <https://gitlab.com/sestep/lean-docker> draws from <https://raw.githubusercontent.com/Kha/elan/v0.10.2/elan-init.sh>
 
