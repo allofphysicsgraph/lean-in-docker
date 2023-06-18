@@ -8,8 +8,8 @@ make
 Once the container exists, `elan` (The Lean toolchain installer) is available
 ```bash
 $ docker run -it --rm leanonubuntu elan show
-stable (default)
-Lean (version 3.50.3, commit 855e5b74e3a5, Release)
+leanprover/lean4:stable (default)
+Lean (version 4.0.0, commit 7dbfaf9b7519, Release)
 ```
 and
 ```bash
@@ -33,7 +33,7 @@ Hello, world!
 ```
 where
 ```bash
-$ cat hello.lean 
+$ cat hello.lean
 import system.io
 open io
 def main : io unit :=
@@ -43,7 +43,7 @@ The `--run` is the same as having `#eval main` at the end of a file.
 
 You can see how long each phase took using
 ```bash
-$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --profile --run hello.lean 
+$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --profile --run hello.lean
 parsing took 0.0624ms
 elaboration of main took 0.587ms
 type checking of main took 0.0148ms
@@ -53,8 +53,8 @@ Hello, world!
 main execution took 0ms
 ```
 
-Most Lean tutorials rely on a web UI or are written for VSCode. See <https://leanprover.github.io/reference/using_lean.html>, 
-<https://www.youtube.com/watch?v=p4IrbnPomXg><BR> 
+Most Lean tutorials rely on a web UI or are written for VSCode. See <https://leanprover.github.io/reference/using_lean.html>,
+<https://www.youtube.com/watch?v=p4IrbnPomXg><BR>
 Because I plan to use Lean as part of a workflow, loading from files and getting command line output is relevant.
 
 # Similar repos supporting containerization of Lean
@@ -76,18 +76,20 @@ curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf 
 
 # Tutorials for Lean
 
-Lean v3:
+Lean v3: (as of 2023-06-18, v3 is current but the recommendation is to start using v4)
 * <https://leanprover-community.github.io/learn.html> -- directory of resources
 * <https://leanprover-community.github.io/lean-web-editor/> -- web-based Lean UI; no tutorial; can load from file
 * <https://leanprover-community.github.io/mathematics_in_lean/>
+* <https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/> - web-based Lean UI for The Natural Number Game
 
 
-Lean v4:
+Lean v4: (not backwards compatible with v3)
 * <https://leanprover.github.io/introduction_to_lean/> -- web-based Lean UI
-* <https://leanprover.github.io/tutorial/> -- web-based Lean UI for version 2 of Lean
+* <https://leanprover.github.io/tutorial/> -- web-based Lean UI for
+* <https://adam.math.hhu.de/#/g/hhu-adam/NNG4> -- web-based Lean UI for Natural Number Game
 * <https://leanprover.github.io/functional_programming_in_lean/title.html> -- well-written book
 * <https://leanprover.github.io/theorem_proving_in_lean/introduction.html>
-* <https://leanprover.github.io/reference/lean_reference.pdf> 
+* <https://leanprover.github.io/reference/lean_reference.pdf>
 * <https://leanprover.github.io/reference/tactics.html>
 * <https://leanprover.github.io/theorem_proving_in_lean/interacting_with_lean.html> -- importing files; sections
 * <https://leanprover.github.io/logic_and_proof/the_real_numbers.html>
@@ -95,8 +97,5 @@ Lean v4:
 
 Unknown version of Lean:
 * <https://ahelwer.ca/post/2020-04-05-lean-assignment/>
-* <https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/> - web-based Lean UI for The Natural Number Game
 * <https://www.imo.universite-paris-saclay.fr/~patrick.massot/mil/02_Basics.html>
 * <https://agentultra.github.io/lean-for-hackers/>
-
-

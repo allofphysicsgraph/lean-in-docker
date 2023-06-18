@@ -1,4 +1,4 @@
-IMAGE_NAME=lean4onubuntu
+IMAGE_NAME=lean3onubuntu
 
 docker: docker_build docker_run
 
