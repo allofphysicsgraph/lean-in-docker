@@ -1,6 +1,6 @@
 # Lean in Docker
 
-To build this container,
+Assuming your have `docker` (or `podman`) and `make` installed, to build this container run
 ```bash
 make
 ```
@@ -75,18 +75,25 @@ curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf 
 
 # Tutorials for Lean
 
-* <https://leanprover.github.io/introduction_to_lean/> -- web-based Lean UI
-* <https://leanprover.github.io/tutorial/> -- web-based Lean UI for version 2 of Lean
-* <https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/> - web-based Lean UI for The Natural Number Game
+Lean v3:
 * <https://leanprover-community.github.io/learn.html> -- directory of resources
 * <https://leanprover-community.github.io/lean-web-editor/> -- web-based Lean UI; no tutorial; can load from file
 * <https://leanprover-community.github.io/mathematics_in_lean/>
-* <https://ahelwer.ca/post/2020-04-05-lean-assignment/>
+
+
+Lean v4:
+* <https://leanprover.github.io/introduction_to_lean/> -- web-based Lean UI
+* <https://leanprover.github.io/tutorial/> -- web-based Lean UI for version 2 of Lean
 * <https://leanprover.github.io/theorem_proving_in_lean/introduction.html>
 * <https://leanprover.github.io/reference/lean_reference.pdf> 
 * <https://leanprover.github.io/reference/tactics.html>
 * <https://leanprover.github.io/theorem_proving_in_lean/interacting_with_lean.html> -- importing files; sections
 * <https://leanprover.github.io/logic_and_proof/the_real_numbers.html>
+
+
+Unknown version of Lean:
+* <https://ahelwer.ca/post/2020-04-05-lean-assignment/>
+* <https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/> - web-based Lean UI for The Natural Number Game
 * <https://www.imo.universite-paris-saclay.fr/~patrick.massot/mil/02_Basics.html>
 * <https://agentultra.github.io/lean-for-hackers/>
 
