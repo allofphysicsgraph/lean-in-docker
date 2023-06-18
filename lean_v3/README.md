@@ -7,15 +7,18 @@ make
 
 Once the container exists, `elan` (The Lean toolchain installer) is available
 ```bash
-$ docker run -it --rm leanonubuntu elan show
+$ docker run -it --rm lean3onubuntu elan show
+stable (default)
+Lean (version 3.51.1, commit cce7990ea86a, Release)
 ```
 and
 ```bash
-$ docker run -it --rm leanonubuntu lean --version
+$ docker run -it --rm lean3onubuntu lean --version
+Lean (version 3.51.1, commit cce7990ea86a, Release)
 ```
 and
 ```bash
-$ docker run -it --rm leanonubuntu lean -h       
+$ docker run -it --rm lean3onubuntu lean -h       
 Lean (version 3.51.1, commit cce7990ea86a, Release)
 Miscellaneous:
   --help -h          display this message
@@ -25,7 +28,7 @@ Miscellaneous:
 ```
 To run a script, use
 ```bash
-$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --run hello.lean
+$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean3onubuntu lean --run hello.v3.lean
 Hello, world!
 ```
 where
@@ -40,7 +43,7 @@ The `--run` is the same as having `#eval main` at the end of a file.
 
 You can see how long each phase took using
 ```bash
-$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --profile --run hello.lean
+$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean3onubuntu lean --profile --run hello.v3.lean
 parsing took 0.0624ms
 elaboration of main took 0.587ms
 type checking of main took 0.0148ms
@@ -54,22 +57,6 @@ Most Lean tutorials rely on a web UI or are written for VSCode. See <https://lea
 <https://www.youtube.com/watch?v=p4IrbnPomXg><BR>
 Because I plan to use Lean as part of a workflow, loading from files and getting command line output is relevant.
 
-# Similar repos supporting containerization of Lean
-
-* <https://github.com/fcbr/lean-docker> - old, inactive
-* <https://github.com/danielbush/lean-remote-containers> - for VScode
-* <https://hub.docker.com/r/lean/lean> - old, inactive
-* <https://gitlab.com/sestep/lean-docker> draws from <https://raw.githubusercontent.com/Kha/elan/v0.10.2/elan-init.sh>
-
-The repo <https://github.com/Kha/elan> is a fork of <https://github.com/leanprover/elan> which uses
-
-```bash
-curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh
-```
-
-# Set up Lean
-
-* <https://leanprover.github.io/lean4/doc/setup.html>
 
 # Tutorials for Lean
 

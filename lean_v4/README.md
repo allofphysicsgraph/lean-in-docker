@@ -7,17 +7,18 @@ make
 
 Once the container exists, `elan` (The Lean toolchain installer) is available
 ```bash
-$ docker run -it --rm leanonubuntu elan show
+$ docker run -it --rm lean4onubuntu elan show
 leanprover/lean4:stable (default)
 Lean (version 4.0.0, commit 7dbfaf9b7519, Release)
 ```
 and
 ```bash
-$ docker run -it --rm leanonubuntu lean --version
+$ docker run -it --rm lean4onubuntu lean --version
+Lean (version 4.0.0, commit 7dbfaf9b7519, Release)
 ```
 and
 ```bash
-$ docker run -it --rm leanonubuntu lean -h       
+$ docker run -it --rm lean4onubuntu lean -h       
 Miscellaneous:
   --help -h          display this message
   --version -v       display version number
@@ -26,40 +27,22 @@ Miscellaneous:
 ```
 To run a script, use
 ```bash
-$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --run hello.lean
+$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean4onubuntu lean --run hello.v4.lean
 Hello, world!
 ```
 where
 ```bash
 $ cat hello.lean
-import system.io
-open io
-def main : io unit :=
-    put_str "Hello, world!\n"
+def main : IO Unit := IO.println "Hello, world!"
 ```
 The `--run` is the same as having `#eval main` at the end of a file.
 
-You can see how long each phase took using
-```bash
-$ docker run -it --rm -v `pwd`:/scratch --workdir /scratch leanonubuntu lean --profile --run hello.lean
-parsing took 0.0624ms
-elaboration of main took 0.587ms
-type checking of main took 0.0148ms
-compilation of main took 1.64ms
-decl post-processing of main took 0.966ms
-Hello, world!
-main execution took 0ms
-```
-
-
-# Set up Lean
-
-* <https://leanprover.github.io/lean4/doc/setup.html>
 
 # Tutorials for Lean
 
 
 Lean v4: (not backwards compatible with v3)
+* <https://leanprover.github.io/lean4/doc/setup.html>
 * <https://leanprover.github.io/introduction_to_lean/> -- web-based Lean UI
 * <https://leanprover.github.io/tutorial/> -- web-based Lean UI for
 * <https://adam.math.hhu.de/#/g/hhu-adam/NNG4> -- web-based Lean UI for Natural Number Game
