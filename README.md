@@ -53,7 +53,8 @@ Hello, world!
 main execution took 0ms
 ```
 
-Most Lean tutorials rely on a web UI or are written for VSCode. See <https://leanprover.github.io/reference/using_lean.html><BR> 
+Most Lean tutorials rely on a web UI or are written for VSCode. See <https://leanprover.github.io/reference/using_lean.html>, 
+<https://www.youtube.com/watch?v=p4IrbnPomXg><BR> 
 Because I plan to use Lean as part of a workflow, loading from files and getting command line output is relevant.
 
 # Similar repos supporting containerization of Lean
@@ -84,6 +85,7 @@ Lean v3:
 Lean v4:
 * <https://leanprover.github.io/introduction_to_lean/> -- web-based Lean UI
 * <https://leanprover.github.io/tutorial/> -- web-based Lean UI for version 2 of Lean
+* <https://leanprover.github.io/functional_programming_in_lean/title.html> -- well-written book
 * <https://leanprover.github.io/theorem_proving_in_lean/introduction.html>
 * <https://leanprover.github.io/reference/lean_reference.pdf> 
 * <https://leanprover.github.io/reference/tactics.html>
