@@ -5,8 +5,9 @@ Most Lean tutorials rely on a web UI or are written for VSCode. See <https://lea
 <https://www.youtube.com/watch?v=p4IrbnPomXg><BR>
 Because I plan to use Lean as part of a workflow, loading from files and getting command line output is relevant.
 
-For the version of Lean you are interested (v4 or v3), in that directory there is a Dockerfile and a Make file.
+For the version of Lean you are interested in (v4 or v3), the respective directory has a `Dockerfile` and a `Make` file.
 
+The Dockerfile does not contain Emacs or VSCode
 
 # Similar repos supporting containerization of Lean
 
