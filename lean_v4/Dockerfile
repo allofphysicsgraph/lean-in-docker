@@ -3,7 +3,9 @@ FROM ubuntu:23.04
 WORKDIR /opt/
 
 RUN apt -y update && apt upgrade
-RUN apt install -y curl
+RUN apt install -y curl git
+
+# `git` is needed by `lake`
 
 # The following doesn't work 
 #RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh

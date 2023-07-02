@@ -25,7 +25,7 @@ Miscellaneous:
   --githash          display the git commit hash number used to build this binary
 ...
 ```
-To run a script, use
+To run a script that has no dependencies on mathlib or other imports, use
 ```bash
 $ docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean4onubuntu lean --run hello.v4.lean
 Hello, world!
@@ -37,6 +37,87 @@ def main : IO Unit := IO.println "Hello, world!"
 ```
 The `--run` is the same as having `#eval main` at the end of a file.
 
+## Create a new project
+Running scripts using `lean` with no dependencies has limited use. Usually in Lean we create packages for modularity and so other people can use our results.
+
+(The following is based on <https://leanprover.github.io/lean4/doc/setup.html>.)
+
+Naming: Lake = Lean's Make = Lean 4 build system and package manager; source code at <https://github.com/leanprover/lake>
+
+```bash
+mkdir temp_for_lean_project
+cd temp_for_lean_project
+docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean4onubuntu lake init foo
+```
+For background, see <https://github.com/leanprover/lake#creating-and-building-a-package>
+
+Initializing a project creates a git repo containing the files
+* `.gitignore`
+* `Foo.lean`
+* `Main.lean`
+* `lakefile.lean`
+Here `lakefile.lean` contains
+```
+import Lake
+open Lake DSL
+
+package foo {
+  -- add package configuration options here
+}
+
+lean_lib Foo {
+  -- add library configuration options here
+}
+
+@[defaultTarget]
+lean_exe foo {
+  root := `Main
+}
+```
+
+Next, build the source code into a binary
+```
+docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean4onubuntu lake build
+    Building Foo
+    Compiling Foo
+    Building Main
+    Compiling Main
+    Linking foo
+```
+The binary can't be executed on the host, so you have to execute inside the container using
+```bash
+docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean4onubuntu build/bin/foo
+    Hello, world!
+```
+The default package doesn't require mathlib, so the next project uses the `math` template.
+
+## Including Mathlib in a project
+To leverage mathlib, we create a project that contains a configuration file that tells Lean where to find Mathlib.
+
+```bash
+docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean4onubuntu lake init foo math
+```
+which produces
+* `.gitignore`
+* `Foo.lean`
+* `lakefile.lean`
+This time the `lakefile.lean` contains
+```
+import Lake
+open Lake DSL
+
+package foo {
+  -- add any package configuration options here
+}
+
+require mathlib from git
+  "https://github.com/leanprover-community/mathlib4.git"
+
+@[defaultTarget]
+lean_lib Foo {
+  -- add any library configuration options here
+}
+```
 
 # Tutorials for Lean
 
