@@ -2,7 +2,7 @@ FROM ubuntu:23.04
 
 WORKDIR /opt/
 
-RUN apt -y update && apt upgrade
+RUN apt -y update && apt -y upgrade
 RUN apt install -y curl git
 
 # `git` is needed by `lake`
