@@ -1,0 +1,27 @@
+[Elab.command] set_option trace.Elab.step true in
+    def add1 (n : Nat) : Nat :=
+      n + 1
+  [Elab.command] section
+  [Elab.command] set_option trace.Elab.step true
+  [Elab.command] def add1 (n : Nat) : Nat :=
+        n + 1
+    [Elab.step] expected type: Type, term
+        Nat
+      [Elab.step.result] Nat
+    [Elab.step] expected type: Type, term
+        Nat
+      [Elab.step.result] Nat
+    [Elab.step] expected type: Nat, term
+        n + 1
+      [Elab.step] expected type: Nat, term
+          binop% HAdd.hAdd✝ n 1
+        [Elab.step] expected type: <not-available>, term
+            n
+          [Elab.step.result] n
+        [Elab.step] expected type: <not-available>, term
+            1
+          [Elab.step.result] 1
+        [Elab.step.result] n + 1
+      [Elab.step.result] n + 1
+  [Elab.command] end
+8
