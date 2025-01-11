@@ -37,6 +37,29 @@ def main : IO Unit := IO.println "Hello, world!"
 ```
 Using `--run` on the command line is the same as having `#eval main` at the end of a file.
 
+## Common errors
+
+### `unknown declaration 'main'`
+
+Using `lean --run hello.v4.lean` on the code
+```
+def add1 (n : Nat) : Nat := n + 1
+#eval add1 7
+```
+produces the output
+```
+8
+unknown declaration 'main'
+```
+The `#eval` command produced the correct output. When `#eval` is used Lean doesn't expect a `main` function because it's executing a specific expression, not running a full program.
+
+What is main? In Lean `main` is the entry point of the program - where execution starts. If you were compiling a Lean program into an executable, it would need a `main` function to begin execution.
+
+Lean is looking for a `main` definition to "run" something further, but it doesn't find one, so Lean complains: "I don't know what `main` is".
+
+To remedy this problem simply use `lean hello.v4.lean`. No need to use `--run` if the file has `#eval`.
+
+
 ## Create a new project
 Running scripts using `lean` with no dependencies has limited use. Usually in Lean we create packages for modularity and so other people can use our results.
 
