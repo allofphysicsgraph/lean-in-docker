@@ -35,7 +35,7 @@ where
 $ cat hello.lean
 def main : IO Unit := IO.println "Hello, world!"
 ```
-The `--run` is the same as having `#eval main` at the end of a file.
+Using `--run` on the command line is the same as having `#eval main` at the end of a file.
 
 ## Create a new project
 Running scripts using `lean` with no dependencies has limited use. Usually in Lean we create packages for modularity and so other people can use our results.
