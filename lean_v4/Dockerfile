@@ -1,4 +1,8 @@
-FROM ubuntu:23.04
+#FROM ubuntu:23.04
+
+# https://docs.docker.com/engine/reference/builder/#from
+# https://github.com/phusion/baseimage-docker
+FROM phusion/baseimage:focal-1.1.0
 
 WORKDIR /opt/
 
@@ -24,7 +28,7 @@ RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -
 # --default-toolchain leanprover/lean4:nightly
 # as per https://leanprover-community.github.io/archive/stream/270676-lean4/topic/elan.20update.html
 
-ENV PATH "/root/.elan/bin:$PATH"
+ENV PATH="/root/.elan/bin:$PATH"
 
 # As per https://gitlab.com/sestep/lean-docker/-/blob/master/Dockerfile
 # and https://leanprover-community.github.io/install/debian_details.html
