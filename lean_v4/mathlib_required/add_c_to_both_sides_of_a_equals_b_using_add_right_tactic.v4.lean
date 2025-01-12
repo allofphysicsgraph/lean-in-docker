@@ -28,7 +28,7 @@ docker run -it --rm -v `pwd`:/scratch --workdir /scratch lean4onubuntu lean add_
 
 import Mathlib.Data.Real.Basic
 
-example (a b c : ℝ) (h : a = b) : a + c = b + c := by
+example (a b c : Real) (h : a = b) : a + c = b + c := by
   apply add_right c at h
   exact h
 
